@@ -28,3 +28,24 @@ def posts_by_category(request,category_id):
     return render(request,'posts_by_category.html',context)
 
 
+def blogs(request,slug):
+    single_blog= get_object_or_404(Blog,slug=slug,status='Published')
+    context= {
+        'single_blog':single_blog
+    }
+    return render(request,'blogs.html',context)
+
+
+
+
+def search(request):
+    keyword=request.GET.get('keyword')
+    # print('keywrd==>',keyword)
+    blogs=Blog.objects.filter(title__icontains=keyword,status='Published')   #fetch the blog post whose title contains the keyword that user has searched for
+    context={
+        'blogs':blogs,
+        'keyword':keyword
+    }
+    return render(request,'search.html')
+
+

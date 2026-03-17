@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <!-- About Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4 class="card-title">{{ about.title }}</h4>
+      <p class="card-text">
+        {{ about.content }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Follow Us Section -->
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Follow Us</h4>
+      <ul class="list-unstyled mb-0">
+        {% for item in follow_us %}
+          <li class="mb-1">
+            <a href="{{ item.url }}" target="_blank">
+              {{ item.platform }}
+            </a>
+          </li>
+        {% empty %}
+          <li>No social links available</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

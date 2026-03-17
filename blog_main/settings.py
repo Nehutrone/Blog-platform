@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogs',
+    'assignments',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'blogs.context_processors.get_categories',
-                
+                'blogs.context_processors.get_social_links',      
             ],
         },
     },
@@ -123,6 +124,5 @@ STATICFILES_DIRS=[
     'blog_main/static',
 ]
 
-
-MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR/'media'
+ 
+ 
